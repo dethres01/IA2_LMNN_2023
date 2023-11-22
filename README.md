@@ -7,13 +7,12 @@ This Python code implements a neural network using the Levenberg-Marquardt algor
 
 ## Requirements
 
-To compile and run this code, you need:
+### To compile and run this code, you need:
 
-    Python: Ensure you have Python installed (version 3.x).
+Python: Ensure you have Python installed (version 3.x).
 
-    Required Libraries: Install the necessary libraries using the following:
+Required Libraries: Install the necessary libraries using the following:
 
-    bash
 
     pip install numpy matplotlib
 
