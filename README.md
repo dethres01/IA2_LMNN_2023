@@ -9,15 +9,13 @@ This Python code implements a neural network using the Levenberg-Marquardt algor
 
 To compile and run this code, you need:
 
-    ```
     Python: Ensure you have Python installed (version 3.x).
 
     Required Libraries: Install the necessary libraries using the following:
 
     bash
-    ```
 
-    `pip install numpy matplotlib`
+    pip install numpy matplotlib
 
 
 ## How to Run
@@ -28,7 +26,7 @@ To compile and run this code, you need:
 
 >[!NOTE]
 >Creating a neural network with the Levenberg-Marquardt algorithm involves several steps. Below is a step-by-step guide to help you understand how to implement a neural network with the Levenberg-Marquardt algorithm:
-s
+
 ## Results
 
 The code trains a neural network using the Levenberg-Marquardt algorithm and visualizes the decision boundary along with the sine wave. The training error plot is also displayed.
