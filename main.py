@@ -9,6 +9,7 @@ import threading
 class MLN:
 
     def __init__(self,eta=0.1, epoch=1000, min_error=0.01, n_neurons=6):
+        
         self.lr = eta
         self.epoch = epoch
         self.n_epoch = 0
@@ -29,6 +30,7 @@ class MLN:
         self.canvas_e = None
 
     def set_canvas(self):
+        # set window
         mainwindow = Toplevel()
         mainwindow.wm_title("MLN")
         mainwindow.geometry("990x600")
@@ -44,6 +46,7 @@ class MLN:
         self.fig.canvas.mpl_connect('button_press_event', self.set_dots)
 
         # error canvas
+        
         self.canvas_e = FigureCanvasTkAgg(self.fig_e, master=mainwindow)
         self.canvas_e.get_tk_widget().place(x=20, y=70, width=300, height=200)
         execute_button = Button(mainwindow, text="Train Function",command=lambda: threading.Thread(target=self.train).start())
@@ -60,8 +63,9 @@ class MLN:
 
         mainwindow.mainloop()
 
-
+    # set dots on canvas and add to X and d arrays for training later
     def set_dots(self, event):
+        
         ix, iy = event.xdata, event.ydata
         self.X.append((1, ix, iy))
         if event.button == 1:
@@ -74,17 +78,20 @@ class MLN:
     
 
     def activation(self, x, w):
+        
         a = 1
         v = np.dot(x, w)
         f = 1/(1+np.exp(-a*v))
         return f
     
     def fd_activation(self, Y):
+        
         a = 1
         f = a*Y*(1-Y)
         return f
     
     def calc_hidden(self):
+        
         #print("X.shape", self.X.shape, "w_hidden.shape", np.transpose(self.w_hidden).shape)
         hidden_y = self.activation(self.X, np.transpose(self.w_hidden))
         # wx+b <- 
@@ -93,6 +100,7 @@ class MLN:
         return hidden_y, hidden_x, y
     
     def train(self):
+        
         #we are going to try to calculate the jacobian matrix while training
         num_samples = len(self.X)
         jacobian_size = self.w_hidden.size + self.w_output.size
@@ -140,6 +148,7 @@ class MLN:
 
 
     def train_jacobian(self):
+        
         num_samples = len(self.X)
         jacobian_size = self.w_hidden.size + self.w_output.size
 
@@ -236,6 +245,7 @@ class MLN:
             self.epoch -= 1
 
     def plotting_jacob(self):
+        
         self.ax.cla()
         _, _, y = self.calc_hidden()
 
@@ -285,6 +295,7 @@ class MLN:
 
     
     def plotting(self,y):
+        
         self.ax.cla()
 
         for i in range(len(np.array(y).flatten())):
@@ -322,6 +333,7 @@ class MLN:
 
 
 if __name__ == "__main__":
+    
     #mln = MLN()
     #mln.set_canvas()
     mln = MLN()
