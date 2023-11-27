@@ -34,8 +34,8 @@ class LMNN:
         mainwindow = Toplevel() #ventana principal
         mainwindow.wm_title("Levenberg-Marquardt") #titulo de la ventana
         mainwindow.geometry("1080x720") #tamano de la ventana
-        #add image to window
-        img = PhotoImage(file="bg.png") #imagen de fondo
+        # add image to window
+        img = PhotoImage(file="bg2.png") #imagen de fondo
         img_label = Label(mainwindow, image=img, bg='white') #label para la imagen de fondo
         img_label.place(x=0, y=0, relwidth=1, relheight=1) #posicion de la imagen de fondo 
 
@@ -368,8 +368,6 @@ class LMNN:
 
 if __name__ == "__main__":
     
-    #mln = MLN()
-    #mln.set_canvas()
-    mln = LMNN()
-    mln.set_canvas()
+    lmnn = LMNN()
+    lmnn.set_canvas()
     #mln.train_jacobian()
