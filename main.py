@@ -31,6 +31,9 @@ class MLN:
 
     def set_canvas(self):
         # set window
+        mainwindow = Toplevel()
+        mainwindow.wm_title("Levenberg-Marquardt")
+        mainwindow.geometry("990x600")
         mainwindow = Toplevel() #ventana principal
         mainwindow.wm_title("MLN") #titulo de la ventana
         mainwindow.geometry("1080x720") #tamano de la ventana
@@ -53,6 +56,8 @@ class MLN:
         execute_button.place(x=740, y=50)
         jacobian_button = Button(mainwindow, text="Train Jacobian",command=lambda: threading.Thread(target=self.train_jacobian).start())
         jacobian_button.place(x=740, y=80)
+        title = Label(mainwindow, text="Levenberg-Marquardt", font=("Helvetica", 16))
+        title.place(x=400, y=10)
         # reset button
         reset_button = Button(mainwindow, text="Reset", command=lambda: self.clear_data())
         reset_button.place(x=840, y=80)
@@ -62,7 +67,7 @@ class MLN:
         self.label_n_epoch = Label(mainwindow, text="Epoch: 0")
         self.label_n_epoch.place(x=10, y=300)
         self.label_error = Label(mainwindow, text="Error: 0")
-        self.label_error.place(x=90, y=300)
+        self.label_error.place(x=10, y=320)
 
         mainwindow.mainloop()
     
