@@ -32,7 +32,7 @@ class MLN:
     def set_canvas(self):
         # set window
         mainwindow = Toplevel()
-        mainwindow.wm_title("MLN")
+        mainwindow.wm_title("Levenberg-Marquardt")
         mainwindow.geometry("990x600")
         #add image to window
         img = PhotoImage(file="bg.png")
@@ -53,13 +53,13 @@ class MLN:
         execute_button.place(x=740, y=50)
         jacobian_button = Button(mainwindow, text="Train Jacobian",command=lambda: threading.Thread(target=self.train_jacobian).start())
         jacobian_button.place(x=740, y=80)
-        title = Label(mainwindow, text="MLN", font=("Helvetica", 16))
-        title.place(x=80, y=10)
+        title = Label(mainwindow, text="Levenberg-Marquardt", font=("Helvetica", 16))
+        title.place(x=400, y=10)
         self.set_axis()
         self.label_n_epoch = Label(mainwindow, text="Epoch: 0")
         self.label_n_epoch.place(x=10, y=300)
         self.label_error = Label(mainwindow, text="Error: 0")
-        self.label_error.place(x=90, y=300)
+        self.label_error.place(x=10, y=320)
 
         mainwindow.mainloop()
 
