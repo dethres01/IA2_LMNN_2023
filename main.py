@@ -6,7 +6,7 @@ import threading
 
 # Multi layer neural network
 
-class MLN:
+class LMNN:
 
     def __init__(self,eta=0.1, epoch=1500, min_error=0.01, n_neurons=6):
         
@@ -31,11 +31,8 @@ class MLN:
 
     def set_canvas(self):
         # set window
-        mainwindow = Toplevel()
-        mainwindow.wm_title("Levenberg-Marquardt")
-        mainwindow.geometry("990x600")
         mainwindow = Toplevel() #ventana principal
-        mainwindow.wm_title("MLN") #titulo de la ventana
+        mainwindow.wm_title("Levenberg-Marquardt") #titulo de la ventana
         mainwindow.geometry("1080x720") #tamano de la ventana
         #add image to window
         img = PhotoImage(file="bg.png") #imagen de fondo
@@ -53,16 +50,14 @@ class MLN:
         self.canvas_e = FigureCanvasTkAgg(self.fig_e, master=mainwindow) #canvas para el error
         self.canvas_e.get_tk_widget().place(x=20, y=70, width=300, height=200)
         execute_button = Button(mainwindow, text="Train Function",command=lambda: threading.Thread(target=self.train).start())
-        execute_button.place(x=740, y=50)
+        execute_button.place(x=10, y=350)
         jacobian_button = Button(mainwindow, text="Train Jacobian",command=lambda: threading.Thread(target=self.train_jacobian).start())
-        jacobian_button.place(x=740, y=80)
+        jacobian_button.place(x=10, y=380)
         title = Label(mainwindow, text="Levenberg-Marquardt", font=("Helvetica", 16))
         title.place(x=400, y=10)
         # reset button
-        reset_button = Button(mainwindow, text="Reset", command=lambda: self.clear_data())
-        reset_button.place(x=840, y=80)
-        title = Label(mainwindow, text="MLN", font=("Helvetica", 16))
-        title.place(x=80, y=10)
+        reset_button = Button(mainwindow, text="Reset", command=lambda: self.clear_data(), width=11)
+        reset_button.place(x=10, y=410)
         self.set_axis()
         self.label_n_epoch = Label(mainwindow, text="Epoch: 0")
         self.label_n_epoch.place(x=10, y=300)
@@ -71,7 +66,7 @@ class MLN:
 
         mainwindow.mainloop()
     
-
+    # Funcion para resetear la interfaz
     def clear_data(self):
         # Clear existing data
         self.X = []
@@ -375,6 +370,6 @@ if __name__ == "__main__":
     
     #mln = MLN()
     #mln.set_canvas()
-    mln = MLN()
+    mln = LMNN()
     mln.set_canvas()
     #mln.train_jacobian()
