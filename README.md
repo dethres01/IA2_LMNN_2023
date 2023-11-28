@@ -10,27 +10,27 @@ El algoritmo Levenberg-Marquardt (LM) es un método numérico para resolver prob
 
 la fórmula del algoritmo de Levenberg-Marquardt  está denotada de la siguiente manera 
 
-![]("img/formula_general.png")
+![](img/formula_general.png)
 
 ### Jacobiano
 La matriz Jacobiana contiene las derivadas parciales de la función objetivo con respecto a los parámetros del modelo es como un mapa que nos dice cómo se inclina la función objetivo cuando cambiamos un poquito los parámetros del modelo. Es esencial para saber en qué dirección ajustar nuestros parámetros. 
 
 El jacobiano está descrito con la siguiente fórmula:
 
-![]("img/jacobian.png")
+![](img/jacobian.png)
 
 ### Matriz Hessian
 
 La matriz Hessiana completa puede ser costoso en términos computacionales, por lo que en el método de Levenberg-Marquardt se utiliza una aproximación de la matriz Hessiana (H) que se calcula como
 
-![]("img/Hessian.png")
+![](img/Hessian.png)
 
 Donde I es una matriz identidad por lambda (Gradiente descendiente), esta matriz nos da una idea de la curvatura de la función objetivo en el espacio de parámetros, lo que ayuda a ajustar los parámetros de una manera más efectiva.
 
 ### Error cuadratico Medio
 Y luego está el error cuadrático medio, en la implementación lo calculamos de la siguiente manera:
 
-![]("img/Square_error.png")
+![](img/Square_error.png)
 
 que es básicamente una medida de qué tan mal nuestro modelo está haciendo sus predicciones en comparación con la realidad. En este algoritmo, tratamos de minimizar la suma de los cuadrados de estos errores, lo que significa mejorar la concordancia entre lo que predice nuestro modelo y lo que realmente vemos.
 
