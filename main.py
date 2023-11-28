@@ -35,7 +35,7 @@ class LMNN:
         mainwindow.wm_title("Levenberg-Marquardt") #titulo de la ventana
         mainwindow.geometry("1080x720") #tamano de la ventana
         # add image to window
-        img = PhotoImage(file="bg2.png") #imagen de fondo
+        img = PhotoImage(file="img/bg2.png") #imagen de fondo
         img_label = Label(mainwindow, image=img, bg='white') #label para la imagen de fondo
         img_label.place(x=0, y=0, relwidth=1, relheight=1) #posicion de la imagen de fondo 
 
